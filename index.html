@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Bootstrap 4 Player</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/fontawesome.min.css"
+    integrity="sha512-OdEXQYCOldjqUEsuMKsZRj93Ht23QRlhIb8E/X0sbwZhme8eUw6g8q7AdxGJKakcBbv7+/PX0Gc2btf7Ru8cZA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <meta name="description" content="Source code generated using layoutit.com">
+  <meta name="author" content="LayoutIt!">
+
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+  <link href="css/nouislider.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-9">
+        <video style="width:100%">
+          <source src="Pexels Videos 1531418.mp4" type="video/mp4">
+        </video>
+        <ul class="buttons">
+          <li type="button">Button 1</li>
+          <li type="button">Button 2</li>
+          <li type="button">Button 3</li>
+        </ul>
+        <div class="play text-center">
+          <div class="icon-1" style="color:#fff;">
+            <i type="button" class="fas fa-play" style="font-size: 25px;color:#fff;"></i><br>
+            <label for="">Play</label>
+          </div>
+          <div class="icon-2" style="display: none;color:#fff;">
+            <i type="button" class="fas fa-pause" style="font-size: 25px;color:#fff; "></i><br>
+            <label for="">Pause</label>
+          </div>
+          <div class="icon-3"style="display: none;color:#fff;">
+            <i type="button" class="fas fa-reply" style="font-size: 25px;color:#fff;"></i><br>
+            <label for="">Replay</label>
+          </div>
+
+        </div>
+        <div class="rage" style="color: #fff;">
+          <div class="row">
+            <div class="col-md-9"> <input type="range" id="vid_range" value="0"></div>
+            <div class="col-md-2">
+              <ul class="icon-list">
+                <li type="button"><i class="fas fa-volume-up"></i></li>
+                      <li type="button"><i class="fas fa-cog"></i></li>
+                <li type="button"><i class="fas fa-expand"></i></li>
+           
+              </ul>
+            </div>
+            <div class="col-md-1"> <span id="Time" style="color: #fff;"></span>/<span id="duration"
+                style="color: #fff;"></span></div>
+          </div>
+
+
+        </div>
+      </div>
+      <div class="col-md-3">
+      </div>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <script src="js/nouislider.min.js"></script>
+  <script src="js/wNumb.js"></script>
+  <script src="js/scripts.js"></script>
+  <script>
+    var vid1 = document.querySelector(".play .icon-1 ");
+    var vid2 = document.querySelector(".play .icon-2 ");
+    var vid5 = document.querySelector(".play .icon-3");
+    var vid3 = document.querySelector("#vid_range");
+    var vid4 = document.querySelector("#Time");
+    vid1.addEventListener("click", function () {
+      document.querySelector("video").play();
+      vid1.style.display = "none";
+      vid2.style.display = "block";
+
+    });
+    vid2.addEventListener("click", function () {
+      document.querySelector("video").pause();
+      vid1.style.display = "block";
+      vid2.style.display = "none";
+    });
+    vid3.addEventListener("input", function (e) {
+      e.preventDefault();
+      document.querySelector("video").currentTime = vid3.value;
+      vid3.max = Math.floor(document.querySelector("video").currentTime.duration);
+
+    });
+    document.querySelector("video").addEventListener("timeupdate", function () {
+
+      vid4.innerHTML = Math.floor(document.querySelector("video").currentTime);
+      vid3.value = document.querySelector("video").currentTime;
+      vid3.max = Math.floor(document.querySelector("video").duration);
+
+    });
+    window.addEventListener("load", function () {
+      vid4.innerHTML = document.querySelector("video").currentTime;
+      document.querySelector("#duration").innerHTML = Math.floor(document.querySelector("video").duration);
+    });
+    document.querySelector("video").addEventListener('ended', function () {
+      vid2.style.display = "none";
+      vid5.style.display = "block";
+    });
+    vid5.addEventListener("click", function () {
+      document.querySelector("video").play();
+      vid5.style.display = "none";
+      vid2.style.display = "block";
+
+    });
+
+
+
+
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,48 @@
+video {
+  position: relative;
+}
+
+.play {
+  position: absolute;
+  left: 47%;
+  right: 47%;
+  top: 38%;
+}
+.icon-1 i,
+.icon-2 i,
+.icon-3 i {
+  border: 1px solid #fff;
+  padding: 12px;
+  margin-bottom: 5px;
+}
+
+.rage {
+  position: absolute;
+  left: 30px;
+  right: 30px;
+  bottom: 50px;
+}
+#vid_range {
+  -webkit-appearance: none;
+  width: 100%;
+  background: rgb(228, 31, 31);
+  height: 8px;
+  border-radius: 7px;
+}
+.icon-list li {
+  display: inline-block;
+  color: #fff;
+  margin: 0 4px;
+}
+.buttons {
+  position: absolute;
+  top: 5%;
+  right: 5%;
+}
+.buttons li {
+  color: #fff;
+  border: 1px solid #fff;
+  display: inline-block;
+  margin-left: 15px;
+  padding: 2px 8px;
+}
